@@ -1,8 +1,8 @@
 # App README
 
 # Application Software Engeneering 
-# Passos - 1222660
-
+# Passos - 122660
+# Carreira - 122630
 - [ ] TODO Replace or update this README with instructions relevant to your application
 
 ## Project Structure
