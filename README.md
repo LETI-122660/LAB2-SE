@@ -1,6 +1,6 @@
 # App README
 
-# Application Software Engeneering 
+# Application Software Engeneering
 # Passos - 122660
 # Carreira - 122630
 - [ ] TODO Replace or update this README with instructions relevant to your application
