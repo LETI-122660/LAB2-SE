@@ -1,10 +1,5 @@
 # App README
 
-# Application Software Engeneering
-# Passos - 122660
-# Carreira - 122630
-- [ ] TODO Replace or update this README with instructions relevant to your application
-
 ## Project Structure
 
 The sources of your App have the following structure:
@@ -87,3 +82,61 @@ The [Getting Started](https://vaadin.com/docs/latest/getting-started) guide will
 App implementation. You'll learn how to set up your development environment, understand the project 
 structure, and find resources to help you add muscles to your skeleton — transforming it into a fully-featured 
 application.
+
+## CI/CD Pipeline (GitHub Actions)
+
+This project includes a GitHub Actions workflow that automatically builds and publishes the `.jar` artifact whenever code is pushed to the `main` branch.
+
+### Pipeline Overview
+
+- **Trigger:** Runs automatically on every `push` to the `main` branch.
+- **Main tasks:**
+    1. Check out the repository code.
+    2. Set up JDK 21 with Maven cache.
+    3. Build the project using `mvn clean package`.
+    4. Copy the generated `.jar` file to the repository root in the workflow runner.
+    5. Upload the `.jar` file as a build artifact, available for download on GitHub.
+
+### Example Workflow (`.github/workflows/build.yml`)
+
+```yaml
+name: Java CI - Build and Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Copy jar to repository root
+        run: cp target/*.jar .
+
+      - name: Upload jar artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: application-jar
+          path: '*.jar'
+```
+Accessing the Build Artifact
+
+After each successful workflow run, the .jar file will be available for download from the Actions tab:
+
+👉 [Download latest build artifact](https://github.com/LETI-122660/LAB2-SE/actions/workflows/build.yml)
+
+💡 Note: The .jar is available inl the Actions interface as a downloadable artifact, but it is not automatically committed to the main branch.
