@@ -50,6 +50,12 @@
             <artifactId>moneta-convert</artifactId>
             <version>1.4.5</version>
         </dependency>
+        <!-- Moneta Conversion module -->
+        <dependency>
+            <groupId>org.javamoney.moneta</groupId>
+            <artifactId>moneta-convert</artifactId>
+            <version>1.4.5</version>
+        </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
