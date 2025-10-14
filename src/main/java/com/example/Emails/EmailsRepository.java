@@ -1,4 +1,9 @@
+// src/main/java/com/example/Emails/EmailsRepository.java
 package com.example.Emails;
 
-public interface EmailsRepository {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EmailsRepository {
+    // Implement persistence logic if needed
 }
