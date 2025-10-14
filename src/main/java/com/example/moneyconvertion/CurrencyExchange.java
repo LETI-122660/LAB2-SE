@@ -38,10 +38,13 @@ public class CurrencyExchange {
         this.amount = amount;
 
         MonetaryAmount number = Money.of(50, fromCurrency);
-        ExchangeRateProvider ecbProvider = MonetaryConversions.getExchangeRateProvider("ECB");
 
-        CurrencyConversion toNewCurrency = ecbProvider.getCurrencyConversion(toCurrency);
+        CurrencyConversion toNewCurrency = MonetaryConversions.getConversion(toCurrency);
         MonetaryAmount converted = number.with(toNewCurrency);
+        result = converted.getNumber().doubleValue();
+
+        System.out.println("Converted " + number + " to " + result);
+
 
 
         this.result = result;
