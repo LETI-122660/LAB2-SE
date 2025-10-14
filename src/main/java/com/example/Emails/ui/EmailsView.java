@@ -1,6 +1,7 @@
 // src/main/java/com/example/Emails/EmailsView.java
-package com.example.Emails;
+package com.example.Emails.ui;
 
+import com.example.Emails.*;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
