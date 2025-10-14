@@ -43,12 +43,17 @@
             <groupId>com.vaadin</groupId>
             <!-- Replace artifactId with vaadin-core to use only free components -->
             <artifactId>vaadin</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.javamoney.moneta/moneta-convert -->
+        </dependency><!-- https://mvnrepository.com/artifact/org.javamoney.moneta/moneta-convert -->
         <dependency>
             <groupId>org.javamoney.moneta</groupId>
             <artifactId>moneta-convert</artifactId>
             <version>1.4.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.money/money-api -->
+        <dependency>
+            <groupId>javax.money</groupId>
+            <artifactId>money-api</artifactId>
+            <version>1.1</version>
         </dependency>
         <!-- Moneta Conversion module -->
         <dependency>

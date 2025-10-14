@@ -2,6 +2,9 @@ package com.example.moneyconvertion;
 
 import jakarta.persistence.*;
 import java.time.Instant;
+import javax.money.convert.*;
+import org.javamoney.moneta.Money;
+import javax.money.*;
 
 @Entity
 @Table(name = "currency_exchange")
@@ -33,6 +36,14 @@ public class CurrencyExchange {
         this.fromCurrency = fromCurrency;
         this.toCurrency = toCurrency;
         this.amount = amount;
+
+        MonetaryAmount number = Money.of(50, fromCurrency);
+        ExchangeRateProvider ecbProvider = MonetaryConversions.getExchangeRateProvider("ECB");
+
+        CurrencyConversion toNewCurrency = ecbProvider.getCurrencyConversion(toCurrency);
+        MonetaryAmount converted = number.with(toNewCurrency);
+
+
         this.result = result;
         this.exchangeDate = exchangeDate;
     }
