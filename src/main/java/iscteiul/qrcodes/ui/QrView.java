@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Route("qrcode")
 @PageTitle("QR Code Generator")
-@Menu(order = 2, icon = "vaadin:qrcode", title = "QR Codes")
+@Menu(order = 4, icon = "vaadin:qrcode", title = "QR Codes")
 public class QrView extends VerticalLayout {
 
     private final QrcodesService qrCodeService;

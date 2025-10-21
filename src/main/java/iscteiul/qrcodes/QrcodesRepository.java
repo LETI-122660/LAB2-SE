@@ -9,4 +9,3 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 public interface QrcodesRepository extends JpaRepository<Qrcodes, Long>, JpaSpecificationExecutor<Qrcodes> {
     Slice<Qrcodes> findAllBy(Pageable pageable);
 }
-
