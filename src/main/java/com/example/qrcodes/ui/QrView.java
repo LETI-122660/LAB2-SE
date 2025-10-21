@@ -1,7 +1,6 @@
 package com.example.qrcodes.ui;
 
 import com.example.qrcodes.Qrcodes;
-import com.example.qrcodes.QrcodesService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
@@ -10,6 +9,7 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.example.qrcodes.QrcodesService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Route("qrcode")
