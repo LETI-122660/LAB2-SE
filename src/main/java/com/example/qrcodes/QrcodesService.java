@@ -1,4 +1,4 @@
-package iscteiul.qrcodes;
+package com.example.qrcodes;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

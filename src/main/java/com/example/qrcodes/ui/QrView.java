@@ -1,5 +1,7 @@
-package iscteiul.qrcodes.ui;
+package com.example.qrcodes.ui;
 
+import com.example.qrcodes.Qrcodes;
+import com.example.qrcodes.QrcodesService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
@@ -8,7 +10,6 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import iscteiul.qrcodes.QrcodesService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Route("qrcode")
@@ -48,7 +49,7 @@ public class QrView extends VerticalLayout {
                 add(qrCodeImage);
 
                 // Salvar no banco de dados
-                qrCodeService.save(new iscteiul.qrcodes.Qrcodes(content));
+                qrCodeService.save(new Qrcodes(content));
 
                 Notification.show("QR Code generated successfully!", 3000, Notification.Position.MIDDLE);
             } else {

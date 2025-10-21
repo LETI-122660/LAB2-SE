@@ -1,4 +1,4 @@
-package iscteiul.qrcodes;
+package com.example.qrcodes;
 
 
 import org.springframework.data.domain.Pageable;
