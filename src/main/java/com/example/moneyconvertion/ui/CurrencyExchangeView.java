@@ -19,7 +19,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("currency-exchange")
 @PageTitle("Currency Exchange")
-@Menu(order = 1, icon = "vaadin:exchange", title = "Currency Exchange")
+@Menu(order = 2, icon = "vaadin:exchange", title = "Currency Exchange")
 class CurrencyExchangeView extends Main {
 
     private final CurrencyExchangeService exchangeService;
