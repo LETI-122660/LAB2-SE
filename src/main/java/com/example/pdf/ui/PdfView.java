@@ -23,6 +23,6 @@ public class PdfView extends VerticalLayout {
         Anchor downloadLink = new Anchor("/api/pdf/report?data=" + encodedData, "Baixar PDF");
         downloadLink.getElement().setAttribute("target", "_blank");
 
-        add(exportButton, downloadLink);
+        add(exportButton, downloadLink)
     }
 }
