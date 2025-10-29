@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>pom.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #bcbec4;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+pom.xml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;?</span><span class="s1">xml version</span><span class="s2">=&quot;1.0&quot; </span><span class="s1">encoding</span><span class="s2">=&quot;UTF-8&quot;</span><span class="s0">?&gt;</span>
+<span class="s0">&lt;project </span><span class="s1">xmlns</span><span class="s2">=&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="s1">xmlns:xsi</span><span class="s2">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="s1">xsi:schemaLocation</span><span class="s2">=&quot;http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;modelVersion&gt;</span><span class="s3">4.0.0</span><span class="s0">&lt;/modelVersion&gt;</span>
+
+    <span class="s4">&lt;!-- Project from https://start.vaadin.com/b8afee09-a243-429d-ad98-0859f8f67963 --&gt;</span>
+    <span class="s0">&lt;groupId&gt;</span><span class="s3">com.example</span><span class="s0">&lt;/groupId&gt;</span>
+    <span class="s0">&lt;artifactId&gt;</span><span class="s3">app</span><span class="s0">&lt;/artifactId&gt;</span>
+    <span class="s0">&lt;version&gt;</span><span class="s3">1.0-SNAPSHOT</span><span class="s0">&lt;/version&gt;</span>
+    <span class="s0">&lt;packaging&gt;</span><span class="s3">jar</span><span class="s0">&lt;/packaging&gt;</span>
+
+    <span class="s0">&lt;parent&gt;</span>
+        <span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+        <span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-parent</span><span class="s0">&lt;/artifactId&gt;</span>
+        <span class="s0">&lt;version&gt;</span><span class="s3">3.5.6</span><span class="s0">&lt;/version&gt;</span>
+        <span class="s0">&lt;relativePath/&gt;</span>
+    <span class="s0">&lt;/parent&gt;</span>
+
+    <span class="s0">&lt;properties&gt;</span>
+        <span class="s0">&lt;java.version&gt;</span><span class="s3">21</span><span class="s0">&lt;/java.version&gt;</span>
+        <span class="s0">&lt;vaadin.version&gt;</span><span class="s3">24.9.1</span><span class="s0">&lt;/vaadin.version&gt;</span>
+    <span class="s0">&lt;/properties&gt;</span>
+
+    <span class="s0">&lt;dependencyManagement&gt;</span>
+        <span class="s0">&lt;dependencies&gt;</span>
+            <span class="s0">&lt;dependency&gt;</span>
+                <span class="s0">&lt;groupId&gt;</span><span class="s3">com.vaadin</span><span class="s0">&lt;/groupId&gt;</span>
+                <span class="s0">&lt;artifactId&gt;</span><span class="s3">vaadin-bom</span><span class="s0">&lt;/artifactId&gt;</span>
+                <span class="s0">&lt;version&gt;</span><span class="s3">${vaadin.version}</span><span class="s0">&lt;/version&gt;</span>
+                <span class="s0">&lt;type&gt;</span><span class="s3">pom</span><span class="s0">&lt;/type&gt;</span>
+                <span class="s0">&lt;scope&gt;</span><span class="s3">import</span><span class="s0">&lt;/scope&gt;</span>
+            <span class="s0">&lt;/dependency&gt;</span>
+        <span class="s0">&lt;/dependencies&gt;</span>
+    <span class="s0">&lt;/dependencyManagement&gt;</span>
+
+    <span class="s0">&lt;dependencies&gt;</span>
+        <span class="s0">&lt;dependency&gt;</span>
+            <span class="s0">&lt;groupId&gt;</span><span class="s3">com.vaadin</span><span class="s0">&lt;/groupId&gt;</span>
+            <span class="s0">&lt;artifactId&gt;</span><span class="s3">vaadin-spring-boot-starter</span><span class="s0">&lt;/artifactId&gt;</span>
+        <span class="s0">&lt;/dependency&gt;</span>
+        <span class="s0">&lt;dependency&gt;</span>
+            <span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+            <span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-data-jpa</span><span class="s0">&lt;/artifactId&gt;</span>
+        <span class="s0">&lt;/dependency&gt;</span>
+        <span class="s0">&lt;dependency&gt;</span>
+            <span class="s0">&lt;groupId&gt;</span><span class="s3">com.h2database</span><span class="s0">&lt;/groupId&gt;</span>
+            <span class="s0">&lt;artifactId&gt;</span><span class="s3">h2</span><span class="s0">&lt;/artifactId&gt;</span>
+            <span class="s0">&lt;scope&gt;</span><span class="s3">runtime</span><span class="s0">&lt;/scope&gt;</span>
+        <span class="s0">&lt;/dependency&gt;</span>
+        <span class="s0">&lt;dependency&gt;</span>
+            <span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+            <span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-starter-test</span><span class="s0">&lt;/artifactId&gt;</span>
+            <span class="s0">&lt;scope&gt;</span><span class="s3">test</span><span class="s0">&lt;/scope&gt;</span>
+        <span class="s0">&lt;/dependency&gt;</span>
+        <span class="s0">&lt;dependency&gt;</span>
+            <span class="s0">&lt;groupId&gt;</span><span class="s3">com.google.zxing</span><span class="s0">&lt;/groupId&gt;</span>
+            <span class="s0">&lt;artifactId&gt;</span><span class="s3">core</span><span class="s0">&lt;/artifactId&gt;</span>
+            <span class="s0">&lt;version&gt;</span><span class="s3">3.5.2</span><span class="s0">&lt;/version&gt;</span>
+        <span class="s0">&lt;/dependency&gt;</span>
+    <span class="s0">&lt;/dependencies&gt;</span>
+
+    <span class="s0">&lt;build&gt;</span>
+        <span class="s0">&lt;defaultGoal&gt;</span><span class="s3">spring-boot:run</span><span class="s0">&lt;/defaultGoal&gt;</span>
+        <span class="s0">&lt;plugins&gt;</span>
+            <span class="s0">&lt;plugin&gt;</span>
+                <span class="s0">&lt;groupId&gt;</span><span class="s3">org.springframework.boot</span><span class="s0">&lt;/groupId&gt;</span>
+                <span class="s0">&lt;artifactId&gt;</span><span class="s3">spring-boot-maven-plugin</span><span class="s0">&lt;/artifactId&gt;</span>
+            <span class="s0">&lt;/plugin&gt;</span>
+            <span class="s0">&lt;plugin&gt;</span>
+                <span class="s0">&lt;groupId&gt;</span><span class="s3">com.vaadin</span><span class="s0">&lt;/groupId&gt;</span>
+                <span class="s0">&lt;artifactId&gt;</span><span class="s3">vaadin-maven-plugin</span><span class="s0">&lt;/artifactId&gt;</span>
+                <span class="s0">&lt;version&gt;</span><span class="s3">${vaadin.version}</span><span class="s0">&lt;/version&gt;</span>
+                <span class="s0">&lt;executions&gt;</span>
+                    <span class="s0">&lt;execution&gt;</span>
+                        <span class="s0">&lt;goals&gt;</span>
+                            <span class="s0">&lt;goal&gt;</span><span class="s3">prepare-frontend</span><span class="s0">&lt;/goal&gt;</span>
+                        <span class="s0">&lt;/goals&gt;</span>
+                    <span class="s0">&lt;/execution&gt;</span>
+                <span class="s0">&lt;/executions&gt;</span>
+            <span class="s0">&lt;/plugin&gt;</span>
+        <span class="s0">&lt;/plugins&gt;</span>
+    <span class="s0">&lt;/build&gt;</span>
+
+    <span class="s0">&lt;profiles&gt;</span>
+        <span class="s0">&lt;profile&gt;</span>
+            <span class="s0">&lt;id&gt;</span><span class="s3">production</span><span class="s0">&lt;/id&gt;</span>
+            <span class="s0">&lt;build&gt;</span>
+                <span class="s0">&lt;plugins&gt;</span>
+                    <span class="s0">&lt;plugin&gt;</span>
+                        <span class="s0">&lt;groupId&gt;</span><span class="s3">com.vaadin</span><span class="s0">&lt;/groupId&gt;</span>
+                        <span class="s0">&lt;artifactId&gt;</span><span class="s3">vaadin-maven-plugin</span><span class="s0">&lt;/artifactId&gt;</span>
+                        <span class="s0">&lt;version&gt;</span><span class="s3">${vaadin.version}</span><span class="s0">&lt;/version&gt;</span>
+                        <span class="s0">&lt;executions&gt;</span>
+                            <span class="s0">&lt;execution&gt;</span>
+                                <span class="s0">&lt;goals&gt;</span>
+                                    <span class="s0">&lt;goal&gt;</span><span class="s3">build-frontend</span><span class="s0">&lt;/goal&gt;</span>
+                                <span class="s0">&lt;/goals&gt;</span>
+                                <span class="s0">&lt;phase&gt;</span><span class="s3">compile</span><span class="s0">&lt;/phase&gt;</span>
+                            <span class="s0">&lt;/execution&gt;</span>
+                        <span class="s0">&lt;/executions&gt;</span>
+                    <span class="s0">&lt;/plugin&gt;</span>
+                <span class="s0">&lt;/plugins&gt;</span>
+            <span class="s0">&lt;/build&gt;</span>
+        <span class="s0">&lt;/profile&gt;</span>
+    <span class="s0">&lt;/profiles&gt;</span>
+
+    <span class="s0">&lt;repositories&gt;</span>
+        <span class="s0">&lt;repository&gt;</span>
+            <span class="s0">&lt;id&gt;</span><span class="s3">vaadin-directory</span><span class="s0">&lt;/id&gt;</span>
+            <span class="s0">&lt;url&gt;</span><span class="s3">https://maven.vaadin.com/vaadin-addons</span><span class="s0">&lt;/url&gt;</span>
+        <span class="s0">&lt;/repository&gt;</span>
+        <span class="s0">&lt;repository&gt;</span>
+            <span class="s0">&lt;id&gt;</span><span class="s3">vaadin-prereleases</span><span class="s0">&lt;/id&gt;</span>
+            <span class="s0">&lt;url&gt;</span><span class="s3">https://maven.vaadin.com/vaadin-prereleases</span><span class="s0">&lt;/url&gt;</span>
+        <span class="s0">&lt;/repository&gt;</span>
+    <span class="s0">&lt;/repositories&gt;</span>
+
+    <span class="s0">&lt;pluginRepositories&gt;</span>
+        <span class="s0">&lt;pluginRepository&gt;</span>
+            <span class="s0">&lt;id&gt;</span><span class="s3">vaadin-prereleases</span><span class="s0">&lt;/id&gt;</span>
+            <span class="s0">&lt;url&gt;</span><span class="s3">https://maven.vaadin.com/vaadin-prereleases</span><span class="s0">&lt;/url&gt;</span>
+        <span class="s0">&lt;/pluginRepository&gt;</span>
+    <span class="s0">&lt;/pluginRepositories&gt;</span>
+<span class="s0">&lt;/project&gt;</span></pre>
+</body>
+</html>

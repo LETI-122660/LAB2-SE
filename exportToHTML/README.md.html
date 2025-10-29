@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #c77dbb; font-style: italic;}
+.s5 { color: #56a8f5;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+README.md</font>
+</center></td></tr></table>
+<pre><span class="s0"># </span><span class="s2">App README</span>
+
+<span class="s0"># </span><span class="s2">Application Software Engineering</span>
+
+<span class="s0">- </span><span class="s1">[ ] </span><span class="s2">TODO Replace or update this README with instructions relevant to your application</span>
+
+<span class="s0">## </span><span class="s2">Project Structure</span>
+
+<span class="s2">The sources of your App have the following structure</span><span class="s1">:</span>
+
+<span class="s0">```</span>
+<span class="s3">src</span>
+<span class="s3">├── main/frontend</span>
+<span class="s3">│   └── themes</span>
+<span class="s3">│       └── default</span>
+<span class="s3">│           ├── styles.css</span>
+<span class="s3">│           └── theme.json</span>
+<span class="s3">├── main/java</span>
+<span class="s3">│   └── [application package]</span>
+<span class="s3">│       ├── base</span>
+<span class="s3">│       │   └── ui</span>
+<span class="s3">│       │       ├── component</span>
+<span class="s3">│       │       │   └── ViewToolbar.java</span>
+<span class="s3">│       │       ├── MainErrorHandler.java</span>
+<span class="s3">│       │       └── MainLayout.java</span>
+<span class="s3">│       ├── examplefeature</span>
+<span class="s3">│       │   ├── ui</span>
+<span class="s3">│       │   │   └── TaskListView.java</span>
+<span class="s3">│       │   ├── Task.java</span>
+<span class="s3">│       │   ├── TaskRepository.java</span>
+<span class="s3">│       │   └── TaskService.java                </span>
+<span class="s3">│       └── Application.java       </span>
+<span class="s3">└── test/java</span>
+    <span class="s3">└── [application package]</span>
+        <span class="s3">└── examplefeature</span>
+           <span class="s3">└── TaskServiceTest.java                 </span>
+<span class="s0">```</span>
+
+<span class="s2">The main entry point into the application is `Application.java`. This class contains the `main</span><span class="s1">()</span><span class="s2">` method that start up </span>
+<span class="s2">the Spring Boot application.</span>
+
+<span class="s2">The skeleton follows a </span><span class="s1">*</span><span class="s2">feature-based package structure</span><span class="s1">*</span><span class="s2">, organizing code by </span><span class="s1">*</span><span class="s2">functional units</span><span class="s1">* </span><span class="s2">rather than traditional </span>
+<span class="s2">architectural layers. It includes two feature packages</span><span class="s1">: </span><span class="s2">`base` and `examplefeature`.</span>
+
+<span class="s0">* </span><span class="s2">The `base` package contains classes meant for reuse across different features, either through composition or </span>
+  <span class="s2">inheritance. You can use them as-is, tweak them to your needs, or remove them.</span>
+<span class="s0">* </span><span class="s2">The `examplefeature` package is an example feature package that demonstrates the structure. It represents a </span>
+  <span class="s1">*</span><span class="s2">self-contained unit of functionality</span><span class="s1">*</span><span class="s2">, including UI components, business logic, data access, and an integration test.</span>
+  <span class="s2">Once you create your own features, </span><span class="s1">*</span><span class="s2">you'll remove this package</span><span class="s1">*</span><span class="s2">.</span>
+
+<span class="s2">The `src/main/frontend` directory contains an empty theme called `default`, based on the Lumo theme. It is activated in</span>
+<span class="s2">the `Application` class, using the `@Theme` annotation.</span>
+
+<span class="s0">## </span><span class="s2">Starting in Development Mode</span>
+
+<span class="s2">To start the application in development mode, import it into your IDE and run the `Application` class. </span>
+<span class="s2">You can also start the application from the command line by running</span><span class="s1">: </span>
+
+<span class="s0">```</span><span class="s4">bash</span>
+<span class="s3">./mvnw</span>
+<span class="s0">```</span>
+
+<span class="s0">## </span><span class="s2">Building for Production</span>
+
+<span class="s2">To build the application in production mode, run</span><span class="s1">:</span>
+
+<span class="s0">```</span><span class="s4">bash</span>
+<span class="s3">./mvnw -Pproduction package</span>
+<span class="s0">```</span>
+
+<span class="s2">To build a Docker image, run</span><span class="s1">:</span>
+
+<span class="s0">```</span><span class="s4">bash</span>
+<span class="s3">docker build -t my-application:latest .</span>
+<span class="s0">```</span>
+
+<span class="s2">If you use commercial components, pass the license key as a build secret</span><span class="s1">:</span>
+
+<span class="s0">```</span><span class="s4">bash</span>
+<span class="s3">docker build --secret id=proKey,src=$HOME/.vaadin/proKey .</span>
+<span class="s0">```</span>
+
+<span class="s0">## </span><span class="s2">Getting Started</span>
+
+<span class="s2">The </span><span class="s1">[</span><span class="s2">Getting Started</span><span class="s1">](</span><span class="s5">https://vaadin.com/docs/latest/getting-started</span><span class="s1">) </span><span class="s2">guide will quickly familiarize you with your new</span>
+<span class="s2">App implementation. You'll learn how to set up your development environment, understand the project </span>
+<span class="s2">structure, and find resources to help you add muscles to your skeleton — transforming it into a fully-featured </span>
+<span class="s2">application.</span>
+</pre>
+</body>
+</html>

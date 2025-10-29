@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Dockerfile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.ls0 { height: 1px; border-width: 0; color: #43454a; background-color:#43454a}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Dockerfile</font>
+</center></td></tr></table>
+<pre><span class="s0">FROM </span><span class="s1">ghcr</span><span class="s2">.</span><span class="s1">io</span><span class="s0">/</span><span class="s1">jqlang</span><span class="s0">/</span><span class="s1">jq:latest AS jq-stage</span>
+<hr class="ls0"><span class="s0">FROM </span><span class="s1">eclipse-temurin:21-jdk AS build</span>
+<span class="s0">COPY --</span><span class="s1">from=jq-stage </span><span class="s0">/</span><span class="s1">jq </span><span class="s0">/</span><span class="s1">usr</span><span class="s0">/</span><span class="s1">bin</span><span class="s0">/</span><span class="s1">jq</span>
+<span class="s3"># Test that jq works after copying</span>
+<span class="s0">RUN </span><span class="s1">jq </span><span class="s0">--</span><span class="s1">version</span>
+
+<span class="s0">ENV </span><span class="s1">HOME=</span><span class="s0">/</span><span class="s1">app</span>
+<span class="s0">RUN </span><span class="s1">mkdir </span><span class="s0">-</span><span class="s1">p $HOME</span>
+<span class="s0">WORKDIR </span><span class="s1">$HOME</span>
+<span class="s0">COPY </span><span class="s2">. </span><span class="s1">$HOME</span>
+
+<span class="s3"># If you have a Vaadin Pro key, pass it as a secret with id &quot;proKey&quot;:</span>
+<span class="s3">#</span>
+<span class="s3">#   $ docker build --secret id=proKey,src=$HOME/.vaadin/proKey .</span>
+<span class="s3">#</span>
+<span class="s3"># If you have a Vaadin Offline key, pass it as a secret with id &quot;offlineKey&quot;:</span>
+<span class="s3">#</span>
+<span class="s3">#   $ docker build --secret id=offlineKey,src=$HOME/.vaadin/offlineKey .</span>
+
+<span class="s0">RUN --</span><span class="s1">mount=type=cache</span><span class="s2">,</span><span class="s1">target=</span><span class="s0">/</span><span class="s1">root</span><span class="s0">/</span><span class="s2">.</span><span class="s1">m2 \ 
+    </span><span class="s0">--</span><span class="s1">mount=type=secret</span><span class="s2">,</span><span class="s1">id=proKey \ 
+    </span><span class="s0">--</span><span class="s1">mount=type=secret</span><span class="s2">,</span><span class="s1">id=offlineKey \ 
+    sh </span><span class="s0">-</span><span class="s1">c </span><span class="s4">'PRO_KEY=$(jq -r &quot;.proKey // empty&quot; /run/secrets/proKey 2&gt;/dev/null || echo &quot;&quot;) &amp;&amp; \ 
+    OFFLINE_KEY=$(cat /run/secrets/offlineKey 2&gt;/dev/null || echo &quot;&quot;) &amp;&amp; \ 
+    ./mvnw clean package -Pproduction -DskipTests -Dvaadin.proKey=</span><span class="s1">${PRO_KEY} </span><span class="s4">-Dvaadin.offlineKey=</span><span class="s1">${OFFLINE_KEY}</span><span class="s4">'</span>
+<hr class="ls0"><span class="s0">FROM </span><span class="s1">eclipse-temurin:21-jre-alpine</span>
+<span class="s0">COPY --</span><span class="s1">from=build </span><span class="s0">/</span><span class="s1">app</span><span class="s0">/</span><span class="s1">target</span><span class="s0">/*</span><span class="s2">.</span><span class="s1">jar app</span><span class="s2">.</span><span class="s1">jar</span>
+<span class="s0">ENTRYPOINT </span><span class="s2">[</span><span class="s4">&quot;java&quot;</span><span class="s2">, </span><span class="s4">&quot;-jar&quot;</span><span class="s2">, </span><span class="s4">&quot;/app.jar&quot;</span><span class="s2">, </span><span class="s4">&quot;--spring.profiles.active=prod&quot;</span><span class="s2">]</span>
+</pre>
+</body>
+</html>
