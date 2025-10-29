@@ -30,6 +30,6 @@ public class Qrcodes {
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.content = content
     }
 }
